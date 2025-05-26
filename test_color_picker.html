@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Color Picker</title>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- Spectrum Color Picker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
+    
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .color-container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .sp-replacer {
+            border: 1px solid #ddd !important;
+            border-radius: 4px !important;
+            padding: 5px !important;
+            cursor: pointer !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test de Color Picker</h1>
+        
+        <div class="color-container">
+            <h5>Color Principal</h5>
+            <input type="text" id="primary_color" class="color-picker" value="#2c3e50">
+        </div>
+        
+        <div class="color-container">
+            <h5>Color Secundario</h5>
+            <input type="text" id="secondary_color" class="color-picker" value="#34495e">
+        </div>
+        
+        <div class="color-container">
+            <h5>Color de Acento</h5>
+            <input type="text" id="accent_color" class="color-picker" value="#2980b9">
+        </div>
+        
+        <div class="color-container">
+            <h5>Vista Previa</h5>
+            <div id="preview" style="width: 100px; height: 100px; background-color: #2c3e50; border-radius: 8px; margin: 10px 0;"></div>
+        </div>
+        
+        <button id="test-btn" class="btn">Probar Colores</button>
+    </div>
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!-- Spectrum Color Picker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            console.log('Iniciando test de color picker...');
+            
+            // Verificar librerías
+            console.log('jQuery:', typeof jQuery !== 'undefined' ? 'OK' : 'ERROR');
+            console.log('Materialize:', typeof M !== 'undefined' ? 'OK' : 'ERROR');
+            console.log('Spectrum:', typeof $.fn.spectrum !== 'undefined' ? 'OK' : 'ERROR');
+            
+            // Inicializar color pickers
+            $('.color-picker').spectrum({
+                color: function() { return $(this).val(); },
+                showInput: true,
+                className: "full-spectrum",
+                showInitial: true,
+                showPalette: true,
+                showSelectionPalette: true,
+                maxSelectionSize: 10,
+                preferredFormat: "hex",
+                palette: [
+                    ["#2c3e50", "#34495e", "#2980b9", "#27ae60", "#c0392b", "#f39c12"],
+                    ["#1abc9c", "#3498db", "#9b59b6", "#e74c3c", "#f1c40f", "#ecf0f1"]
+                ],
+                change: function(color) {
+                    console.log('Color cambiado:', color.toHexString());
+                    updatePreview();
+                },
+                move: function(color) {
+                    updatePreview();
+                }
+            });
+            
+            function updatePreview() {
+                const primaryColor = $('#primary_color').spectrum('get').toHexString();
+                $('#preview').css('background-color', primaryColor);
+                console.log('Vista previa actualizada:', primaryColor);
+            }
+            
+            $('#test-btn').click(function() {
+                console.log('Probando colores...');
+                $('.color-picker').each(function() {
+                    const id = $(this).attr('id');
+                    const color = $(this).spectrum('get').toHexString();
+                    console.log(id + ':', color);
+                });
+            });
+            
+            // Actualizar vista previa inicial
+            setTimeout(updatePreview, 500);
+            
+            console.log('Test inicializado correctamente');
+        });
+    </script>
+</body>
+</html>
