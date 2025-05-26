@@ -77,7 +77,7 @@ Solución e-commerce completa desarrollada con PHP y MySQL. Incluye autenticaci�
 ## Instalación
 
 1. Clona este repositorio en tu servidor web
-2. Importa la estructura de la base de datos desde `database/schema.sql`
+2. Crea la base de datos con la estructura de la base de datos, para eso dejó todas las tablas necesarias en el archivo adjunto.
 3. Configura tus credenciales de Google OAuth en `backend/google_config.php`
 4. Asegúrate de que las URLs de redirección en la consola de Google coincidan con tu configuración
 5. Configura los permisos de escritura para las carpetas de imágenes y logs
