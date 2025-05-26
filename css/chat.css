@@ -1,0 +1,395 @@
+/* Estilos para el sistema de chat */
+
+/* Icono flotante de chat */
+.fixed-action-btn.chat-float {
+    z-index: 1050 !important; /* Aumentado para asegurar que esté por encima de otros elementos */
+    bottom: 23px !important; /* Asegurar que esté en la parte inferior */
+}
+
+.fixed-action-btn.chat-float .btn-floating {
+    background-color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.fixed-action-btn.chat-float .btn-floating:hover {
+    transform: scale(1.1);
+    background-color: #34495e;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.fixed-action-btn.chat-float i {
+    font-size: 24px;
+}
+
+.fixed-action-btn.chat-float.new-message .btn-floating {
+    animation: pulse 1.5s infinite;
+}
+
+/* Estilos para el botón flotante del carrito */
+.fixed-action-btn.cart-float {
+    z-index: 1040 !important; /* Menor que el chat pero mayor que otros elementos */
+    bottom: 90px !important; /* Posición entre el chat y el admin */
+}
+
+.fixed-action-btn.cart-float .btn-floating {
+    background-color: #2980b9;
+    transition: all 0.3s ease;
+}
+
+.fixed-action-btn.cart-float .btn-floating:hover {
+    transform: scale(1.1);
+    background-color: #3498db;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Indicador de chat activo */
+.fixed-action-btn.chat-float.active-chat .btn-floating::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 18px;
+    height: 18px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Cuando hay mensajes nuevos y el chat está activo */
+.fixed-action-btn.chat-float.new-message.active-chat .btn-floating::after {
+    background-color: #F44336;
+    animation: blink 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(33, 150, 243, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(33, 150, 243, 0);
+    }
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Contador de mensajes no leídos */
+.chat-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #F44336;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1051;
+}
+
+/* Estilos para los iconos de chat en el encabezado */
+.chat-icon-container {
+    position: relative;
+}
+
+.chat-icon-container.active-chat::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ventana de chat */
+.chat-window {
+    position: fixed;
+    bottom: 90px; /* Ajustado para coincidir con la nueva posición del icono */
+    right: 30px;
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    z-index: 1051; /* Aumentado para que sea mayor que el z-index del icono */
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.chat-window.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.chat-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.chat-header .close-chat {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.chat-header .close-chat:hover {
+    transform: scale(1.2);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+}
+
+.chat-message {
+    margin-bottom: 15px;
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    position: relative;
+    clear: both;
+    word-wrap: break-word;
+}
+
+.chat-message.user {
+    background-color: #E3F2FD;
+    color: #333;
+    float: right;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-message.admin {
+    background-color: #2c3e50;
+    color: white;
+    float: left;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-message .message-time {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.chat-input {
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 30px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.chat-input input:focus {
+    border-color: #2196F3;
+}
+
+.chat-input button {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.chat-input button:hover {
+    background-color: #34495e;
+}
+
+.chat-input button:disabled {
+    background-color: #B0BEC5;
+    cursor: not-allowed;
+}
+
+/* Estilos para la lista de chats (admin) */
+.chat-list {
+    width: 300px;
+    border-right: 1px solid #e0e0e0;
+    overflow-y: auto;
+}
+
+.chat-list-item {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.chat-list-item:hover {
+    background-color: #f5f5f5;
+}
+
+.chat-list-item.active {
+    background-color: #E3F2FD;
+}
+
+.chat-list-item.unread {
+    background-color: #BBDEFB;
+}
+
+.chat-list-item.closed {
+    background-color: #F5F5F5;
+    opacity: 0.8;
+}
+
+.chat-list-item {
+    display: flex;
+    align-items: center;
+}
+
+.chat-list-item .chat-user {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.chat-list-item .chat-preview {
+    font-size: 13px;
+    color: #757575;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-list-item .chat-time {
+    font-size: 12px;
+    color: #9e9e9e;
+    text-align: right;
+}
+
+.chat-list-item .unread-badge {
+    display: inline-block;
+    background-color: #F44336;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    text-align: center;
+    line-height: 20px;
+    margin-left: 5px;
+}
+
+/* Estilos para el panel de chat del administrador */
+.admin-chat-container {
+    display: flex;
+    height: 600px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.admin-chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-chat-placeholder {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    color: #757575;
+    font-style: italic;
+}
+
+/* Estilos para el mensaje de chat cerrado */
+.chat-closed-message {
+    background-color: #F5F5F5;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 80%;
+}
+
+.chat-closed-icon {
+    margin-bottom: 15px;
+}
+
+.chat-closed-icon i {
+    font-size: 48px;
+    color: #4CAF50;
+}
+
+.chat-closed-message p {
+    margin-bottom: 10px;
+    color: #616161;
+}
+
+.chat-closed-message button {
+    margin-top: 15px;
+    background-color: #2c3e50;
+}
+
+.chat-closed-message button:hover {
+    background-color: #34495e;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .chat-window {
+        width: 90%;
+        height: 80%;
+        right: 5%;
+        bottom: 10%;
+    }
+
+    .admin-chat-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .chat-list {
+        width: 100%;
+        max-height: 300px;
+    }
+}

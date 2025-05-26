@@ -1,0 +1,883 @@
+/* Estilos personalizados adicionales */
+
+/* --- Forzar centrado y ancho reducido solo para páginas de usuario --- */
+main.container:not(.main-container):not(.hero-section):not(.admin-main):not(.catalogo-main) {
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background: #fff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 6px 32px rgba(25, 118, 210, 0.07), 0 1.5px 6px rgba(0,0,0,0.04) !important;
+    padding: 0 0 30px 0 !important;
+    width: 100% !important;
+}
+
+body {
+    background: linear-gradient(120deg, #e3f2fd 0%, #f5f5f5 100%) !important;
+}
+
+@media (max-width: 992px) {
+    main.container:not(.main-container):not(.hero-section):not(.admin-main):not(.catalogo-main) {
+        max-width: 98vw !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+}
+
+/* --- Forzar centrado y fondo solo en páginas de usuario con atributo data-user-main --- */
+main.container[data-user-main] {
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background: #fff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 6px 32px rgba(25, 118, 210, 0.07), 0 1.5px 6px rgba(0,0,0,0.04) !important;
+    padding: 0 0 30px 0 !important;
+    width: 100% !important;
+    z-index: 2;
+}
+
+@media (max-width: 992px) {
+    main.container[data-user-main] {
+        max-width: 98vw !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Ajustar el ancho del contenedor principal para que sea más reducido, similar al formulario de login pero no tan estrecho */
+main.container.catalogo-main {
+    max-width: 1100px !important; /* Ajuste intermedio entre el login y el diseño actual */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 1px 4px rgba(0, 0, 0, 0.05) !important;
+    padding: 20px !important;
+    width: 100% !important;
+}
+
+@media (max-width: 992px) {
+    main.container.catalogo-main {
+        max-width: 95vw !important;
+        border-radius: 8px !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Estilos para el botón de limpiar filtros */
+#limpiar-filtros {
+    background-color: #2c3e50;
+    color: white;
+    width: 100%;
+}
+
+#limpiar-filtros:hover {
+    background-color: #34495e;
+}
+
+/* Estilos para el botón flotante del chat */
+.chat-float {
+    background-color: #2c3e50 !important;
+}
+
+.chat-float:hover {
+    background-color: #34495e !important;
+}
+
+/* Estilos para el botón de limpiar filtros en el mensaje de no productos */
+#limpiar-filtros-mensaje {
+    background-color: #2c3e50;
+}
+
+#limpiar-filtros-mensaje:hover {
+    background-color: #34495e;
+}
+
+/* Estilos para los enlaces del footer */
+.page-footer a {
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
+}
+
+.page-footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ===== CORRECCIÓN ESPECÍFICA DE DESBORDAMIENTO DE TEXTO ===== */
+/* SOLO corregir texto, NO tocar estructura, botones ni funcionalidad */
+
+/* Título del producto - Solo truncamiento de texto */
+.producto-item .card-content h5.product-title {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    word-wrap: break-word !important;
+    max-height: 2.6em !important;
+    line-height: 1.3 !important;
+}
+
+/* Descripción del producto - Solo truncamiento de texto */
+.producto-item .card-content .product-description .product-description-text {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    word-wrap: break-word !important;
+    max-height: 2.6em !important;
+    line-height: 1.3 !important;
+}
+
+/* Precios - Solo evitar desbordamiento horizontal */
+.producto-item .card-content .price-section .price {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.producto-item .card-content .price-section .price-bs {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Información de tasa - Solo evitar desbordamiento */
+.producto-item .card-content .price-section .tasa-info {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Categoría - Mostrar texto completo ajustado a la tarjeta */
+.producto-item .card-content .category-container {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 8px 0 !important;
+    padding: 0 8px !important;
+}
+
+.producto-item .card-content .category-container .category-value-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    flex-wrap: wrap !important;
+}
+
+.producto-item .card-content .category-container .category-value {
+    font-size: 0.75rem !important;
+    color: #666 !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    max-width: none !important;
+    white-space: normal !important;
+    overflow: visible !important;
+}
+
+/* Etiqueta de categoría */
+.producto-item .card-content .category-container .category-label {
+    font-size: 0.75rem !important;
+    color: #666 !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+}
+
+/* Botón de disponibilidad - Ajustar al ancho de la tarjeta */
+.producto-item .card-content .stock-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.producto-item .card-content .availability-btn {
+    max-width: 95% !important;
+    width: auto !important;
+    min-width: 120px !important;
+    padding: 0 8px !important;
+    font-size: 0.75rem !important;
+    height: 32px !important;
+    line-height: 32px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+}
+
+/* Texto en botones de disponibilidad - Mostrar completo */
+.producto-item .card-content .stock-text {
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+}
+
+/* Cantidad en botones - Ajustar tamaño */
+.producto-item .card-content .stock-quantity {
+    font-size: 0.7rem !important;
+    font-weight: 400 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-left: 2px !important;
+}
+
+/* Icono en botón de disponibilidad */
+.producto-item .card-content .availability-btn .material-icons {
+    font-size: 14px !important;
+    margin-right: 2px !important;
+}
+
+/* DESACTIVAR TODAS LAS ANIMACIONES EXISTENTES DEL BOTÓN */
+.producto-item .card-content .availability-btn,
+.producto-item .card-content .availability-btn.pulse,
+.producto-item .availability-btn,
+.producto-item .availability-btn.pulse,
+.card .availability-btn,
+.card .availability-btn.pulse,
+.btn.availability-btn,
+.btn.availability-btn.pulse {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Desactivar animaciones cuando se hace hover en la tarjeta */
+.producto-item .card:hover .availability-btn,
+.producto-item .card.hovered .availability-btn,
+.card:hover .availability-btn,
+.card.hovered .availability-btn,
+.card.hovered .availability-btn.pulse:not(.red),
+.card.hovered .availability-btn:not(.red)::after {
+    animation: none !important;
+    transform: none !important;
+    /* NO ocultar el botón - solo desactivar animaciones */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+}
+
+/* Desactivar específicamente las animaciones del archivo bodycatalogo.php */
+.card.hovered .availability-btn {
+    transform: none !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important; /* Mantener sombra básica */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+}
+
+.card.hovered .availability-btn:not(.red)::after {
+    opacity: 0 !important;
+    animation: none !important;
+    display: none !important;
+}
+
+.card.hovered .availability-btn.pulse:not(.red) {
+    animation: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+}
+
+/* Desactivar la clase pulse completamente */
+.availability-btn.pulse,
+.btn.pulse.availability-btn {
+    animation: none !important;
+}
+
+/* Desactivar keyframes existentes */
+@keyframes pulse {
+    0%, 100% {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
+@keyframes gradientBorder {
+    0%, 100% {
+        background-position: 0% 50% !important;
+        opacity: 0 !important;
+    }
+}
+
+/* NUEVAS ANIMACIONES - Solo al hacer hover específicamente en el botón */
+.producto-item .card-content .availability-btn {
+    transition: all 0.3s ease !important;
+    transform: scale(1) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+}
+
+/* Asegurar que el botón siempre sea visible */
+.producto-item .availability-btn,
+.card .availability-btn,
+.btn.availability-btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+}
+
+/* Animación al hacer hover específicamente en el botón */
+.producto-item .card-content .availability-btn:hover {
+    transform: scale(1.05) translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+    filter: brightness(1.1) !important;
+    animation: availability-pulse 1.5s infinite !important;
+}
+
+/* Keyframes para la animación de pulso del botón */
+@keyframes availability-pulse {
+    0% {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    50% {
+        transform: scale(1.08) translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    100% {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+}
+
+/* Efecto de brillo sutil en el texto al hacer hover */
+.producto-item .card-content .availability-btn:hover .stock-text,
+.producto-item .card-content .availability-btn:hover .stock-quantity {
+    text-shadow: 0 0 4px rgba(255,255,255,0.3) !important;
+}
+
+/* Asegurar que NO haya animaciones en otros estados */
+.producto-item .card-content .availability-btn:not(:hover) {
+    animation: none !important;
+    transform: scale(1) !important;
+}
+
+/* Script para desactivar el JavaScript de hover en tarjetas */
+/* Este CSS se ejecutará después de que se cargue la página */
+
+/* Formulario de carrito - Ajustar al ancho de la tarjeta */
+.producto-item .card-action {
+    padding: 12px 16px !important;
+    overflow: visible !important;
+}
+
+.producto-item .card-action .agregar-carrito-form {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.producto-item .card-action .agregar-carrito-form .row {
+    margin-bottom: 0 !important;
+    width: 100% !important;
+}
+
+/* Campo de cantidad - Ajustar ancho */
+.producto-item .card-action .agregar-carrito-form .col.s6:first-child {
+    padding-right: 8px !important;
+}
+
+.producto-item .card-action .agregar-carrito-form .col.s6:first-child input[type="number"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    text-align: center !important;
+    font-size: 0.9rem !important;
+    height: 36px !important;
+    line-height: 36px !important;
+}
+
+/* Botón de agregar - Ajustar ancho */
+.producto-item .card-action .agregar-carrito-form .col.s6:last-child {
+    padding-left: 8px !important;
+}
+
+.producto-item .card-action .agregar-carrito-form .col.s6:last-child .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+    font-size: 0.8rem !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Icono y texto del botón de agregar */
+.producto-item .card-action .agregar-carrito-form .btn i.material-icons {
+    font-size: 16px !important;
+    margin-right: 4px !important;
+}
+
+/* Botón de login para usuarios no logueados */
+.producto-item .card-action .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 0.8rem !important;
+    padding: 8px 12px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Corregir específicamente el contenedor de botones de login */
+.producto-item .card-action .row {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.producto-item .card-action .col {
+    padding: 0 !important;
+}
+
+/* Asegurar que no haya solapamiento */
+.producto-item .card-action {
+    padding: 16px !important;
+    position: relative !important;
+    overflow: visible !important;
+    min-height: 60px !important;
+}
+
+/* Prevenir solapamiento específico de botones */
+.producto-item .card-action a.btn,
+.producto-item .card-action button.btn {
+    position: static !important;
+    float: none !important;
+    clear: both !important;
+    margin-bottom: 5px !important;
+}
+
+/* Contenedor específico para botones de login */
+.producto-item .card-action .center-align {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* CORRECCIÓN ESPECÍFICA PARA BOTONES DE LOGIN SOLAPADOS */
+/* Forzar que los botones de login no se solapen */
+.producto-item .card-action a[href="login.php"] {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    float: none !important;
+    clear: both !important;
+    z-index: 10 !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+}
+
+/* Asegurar que el contenedor del botón de login tenga espacio suficiente */
+.producto-item .card-action .row .col.s12.center-align {
+    position: relative !important;
+    overflow: visible !important;
+    min-height: 50px !important;
+    padding: 5px 0 !important;
+}
+
+/* Prevenir cualquier transformación o posicionamiento absoluto */
+.producto-item .card-action * {
+    transform: none !important;
+    position: static !important;
+}
+
+/* Excepción para mantener el posicionamiento relativo del contenedor principal */
+.producto-item .card-action {
+    position: relative !important;
+}
+
+.producto-item .card-action .center-align {
+    position: relative !important;
+}
+
+/* SOLUCIÓN DEFINITIVA PARA BOTONES SOLAPADOS */
+/* Usar especificidad máxima para forzar los estilos */
+html body .producto-item .card-action a.btn[href="login.php"],
+html body .producto-item .card-action a.btn.waves-effect.waves-light[href="login.php"] {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    float: none !important;
+    clear: both !important;
+    z-index: 100 !important;
+    transform: none !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: auto !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Contenedor del botón con especificidad máxima */
+html body .producto-item .card-action .row .col.s12.center-align {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 5px 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    min-height: 50px !important;
+    box-sizing: border-box !important;
+}
+
+/* Forzar que no haya elementos flotantes o posicionados absolutamente */
+html body .producto-item .card-action .row {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Limpiar cualquier float o posicionamiento extraño */
+html body .producto-item .card-action * {
+    float: none !important;
+}
+
+html body .producto-item .card-action a.btn {
+    position: relative !important;
+}
+
+/* CORRECCIÓN FINAL CON MÁXIMA PRIORIDAD */
+/* Usar !important en todo para forzar la aplicación */
+html body .producto-item .card-action a.btn[href="login.php"],
+html body .producto-item .card-action a.btn.waves-effect[href="login.php"],
+html body .producto-item .card-action a.btn.waves-light[href="login.php"],
+html body .producto-item .card-action a.btn.waves-effect.waves-light[href="login.php"] {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    float: none !important;
+    clear: both !important;
+    z-index: 1000 !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-size: 0.8rem !important;
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-radius: 4px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    line-height: normal !important;
+    height: auto !important;
+    min-height: 36px !important;
+}
+
+/* Forzar que el contenedor no tenga estilos conflictivos */
+html body .producto-item .card-action .row .col.s12.center-align {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 5px 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    min-height: 50px !important;
+    box-sizing: border-box !important;
+    float: none !important;
+    clear: both !important;
+}
+
+/* Forzar que la fila no tenga estilos conflictivos */
+html body .producto-item .card-action .row {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    clear: both !important;
+}
+
+/* Forzar que card-action tenga el espacio correcto */
+html body .producto-item .card-action {
+    padding: 16px !important;
+    position: relative !important;
+    overflow: visible !important;
+    min-height: 60px !important;
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* ESTILOS PARA TÍTULOS QUE DEBEN USAR EL COLOR DEL TEMA */
+/* Forzar que los títulos usen el color dinámico del encabezado */
+html body .hero-title,
+html body h1.hero-title,
+html body .page-title,
+html body .section-title {
+    color: var(--primary-color) !important;
+}
+
+/* Subtítulos que deben usar el color de acento */
+html body .hero-subtitle,
+html body h5.hero-subtitle {
+    color: var(--accent-color) !important;
+}
+
+/* Línea decorativa de los títulos de sección */
+html body .section-title::after {
+    background-color: var(--primary-color) !important;
+}
+
+/* Asegurar que se aplique en el contexto del catálogo */
+html body main.catalogo-main .hero-title,
+html body main.catalogo-main h1.hero-title {
+    color: var(--primary-color) !important;
+}
+
+html body main.catalogo-main .hero-subtitle,
+html body main.catalogo-main h5.hero-subtitle {
+    color: var(--accent-color) !important;
+}
+
+/* Asegurar que el contenedor de la tarjeta no limite el contenido */
+.producto-item .card {
+    overflow: visible !important;
+}
+
+.producto-item .card-content {
+    overflow: visible !important;
+}
+
+/* ===== CORRECCIÓN DE Z-INDEX PARA MENSAJES DE CONFIRMACIÓN ===== */
+
+/* Mensajes de confirmación - Aparecer por encima del encabezado */
+.toast,
+.toast-container,
+#toast-container,
+.materialize-toast,
+.alert,
+.alert-success,
+.alert-info,
+.alert-warning,
+.alert-danger,
+.notification,
+.message,
+.success-message,
+.error-message {
+    z-index: 10000 !important;
+    position: fixed !important;
+    top: 100px !important; /* Debajo del encabezado completo (barra superior + navbar) */
+}
+
+/* Específico para toasts de Materialize */
+.toast {
+    z-index: 10000 !important;
+    position: fixed !important;
+    top: 100px !important;
+    right: 20px !important;
+    max-width: 350px !important;
+    min-width: 250px !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important;
+    border-radius: 8px !important;
+    padding: 16px 20px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+}
+
+/* Contenedor de toasts */
+#toast-container {
+    z-index: 10000 !important;
+    position: fixed !important;
+    top: 100px !important;
+    right: 20px !important;
+}
+
+/* Mensajes de éxito específicos */
+.toast.success,
+.toast-success,
+.alert-success {
+    background-color: #4CAF50 !important;
+    color: white !important;
+    z-index: 10000 !important;
+}
+
+/* Mensajes de error específicos */
+.toast.error,
+.toast-error,
+.alert-danger {
+    background-color: #f44336 !important;
+    color: white !important;
+    z-index: 10000 !important;
+}
+
+/* Asegurar que el encabezado tenga un z-index menor */
+.navbar-fixed,
+.nav-extended,
+.main-nav,
+header,
+.header,
+.top-bar {
+    z-index: 1000 !important;
+}
+
+/* Forzar z-index específico para elementos del encabezado */
+header.header {
+    z-index: 1000 !important;
+    position: fixed !important;
+}
+
+.navbar-fixed nav {
+    z-index: 1000 !important;
+}
+
+/* Responsive - Ajustar posición en móviles */
+@media (max-width: 768px) {
+    .toast,
+    #toast-container {
+        top: 80px !important;
+        right: 10px !important;
+        left: 10px !important;
+        max-width: calc(100% - 20px) !important;
+        min-width: auto !important;
+    }
+}
+
+/* Alternativa: Mostrar mensajes por encima del encabezado */
+.toast.above-header {
+    z-index: 15000 !important;
+    top: 10px !important;
+    background-color: rgba(76, 175, 80, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Estilos mejorados para mejor visibilidad */
+.toast {
+    font-weight: 500 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+    animation: slideInRight 0.3s ease-out !important;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* FORZAR POSICIÓN DE TOASTS CON MÁXIMA ESPECIFICIDAD */
+body .toast,
+html body .toast,
+html body div.toast,
+html body .materialize-toast {
+    position: fixed !important;
+    z-index: 15000 !important;
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    bottom: auto !important;
+    max-width: 350px !important;
+    min-width: 250px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+    border-radius: 8px !important;
+    padding: 16px 20px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    backdrop-filter: blur(10px) !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* Contenedor de toasts con máxima especificidad */
+body #toast-container,
+html body #toast-container,
+html body div#toast-container {
+    position: fixed !important;
+    z-index: 15000 !important;
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    bottom: auto !important;
+}
+
+/* Forzar que el encabezado esté por debajo pero mantenga su posición */
+html body header,
+html body .navbar-fixed,
+html body .nav-extended,
+html body .main-nav,
+html body .header,
+html body .top-bar {
+    z-index: 1000 !important;
+    /* NO cambiar position - mantener el original */
+}
+
+/* Específicamente para navbar-fixed mantener posición fija */
+html body .navbar-fixed {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+}
+
+/* Para el header principal mantener posición fija */
+html body header.header {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+}
+
+/* Responsive con máxima especificidad */
+@media (max-width: 768px) {
+    body .toast,
+    html body .toast,
+    html body div.toast {
+        top: 20px !important;
+        right: 10px !important;
+        left: 10px !important;
+        max-width: calc(100% - 20px) !important;
+        min-width: auto !important;
+    }
+
+    body #toast-container,
+    html body #toast-container {
+        top: 20px !important;
+        right: 10px !important;
+        left: 10px !important;
+    }
+}

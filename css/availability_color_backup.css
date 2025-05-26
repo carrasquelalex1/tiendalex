@@ -1,0 +1,31 @@
+/* CSS de respaldo para color de disponibilidad */
+:root {
+    --availability-color: #bdc3c7 !important;
+}
+
+/* Selectores específicos para botones de disponibilidad */
+.stock-container .btn:not(.red):not([class*='agotado']),
+.btn.availability-btn:not(.red),
+button.availability-btn:not(.red),
+[data-is-available='true']:not(.red),
+.producto-item .stock-container button.btn:not(.red),
+.card .stock-container .btn:not(.red) {
+    background-color: #bdc3c7 !important;
+    color: white !important;
+}
+
+/* Hover effects */
+.stock-container .btn:not(.red):hover,
+.btn.availability-btn:not(.red):hover,
+button.availability-btn:not(.red):hover,
+[data-is-available='true']:not(.red):hover {
+    background-color: #bdc3c7 !important;
+    filter: brightness(1.1) !important;
+}
+
+/* Asegurar que los botones agotados permanezcan rojos */
+.btn.red,
+.btn[class*='agotado'] {
+    background-color: #f44336 !important;
+    color: white !important;
+}

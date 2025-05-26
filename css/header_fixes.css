@@ -1,0 +1,227 @@
+/**
+ * Correcciones para el encabezado y los iconos flotantes
+ * Este archivo contiene ajustes específicos para corregir problemas de espaciado
+ * y posicionamiento en el encabezado y los iconos flotantes.
+ */
+
+/* Ajustes para el encabezado */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    height: 64px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+}
+
+.navbar-fixed {
+    height: 64px;
+}
+
+nav {
+    height: 64px;
+    line-height: 64px;
+    box-shadow: none !important;
+    background-color: var(--primary-color);
+}
+
+nav.nav-extended .nav-wrapper {
+    height: 64px;
+}
+
+nav .brand-logo {
+    font-size: 1.5rem;
+    padding-left: 0;
+    left: 0;
+    transform: none;
+    color: white !important;
+}
+
+.nav-container {
+    width: 95%;
+    max-width: 1280px;
+    padding: 0 15px;
+}
+
+nav ul a {
+    height: 64px;
+    line-height: 64px;
+    color: white !important;
+}
+
+/* Ajuste para el contenido principal */
+body {
+    padding-top: 64px;
+}
+
+/* Ajuste para los contenedores principales */
+.container {
+    margin-top: 20px;
+}
+
+/* Ajuste para los títulos de página */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Ajustes para los iconos flotantes - separados verticalmente */
+.fixed-action-btn {
+    position: fixed !important;
+    right: 23px !important;
+    z-index: 998 !important;
+}
+
+/* Posición específica para cada botón flotante usando clases específicas */
+/* Botón principal de acciones (menú, agregar producto, etc.) */
+.fixed-action-btn.admin-float {
+    bottom: 160px !important; /* Aumentado para evitar superposición */
+}
+
+/* Botón de chat siempre en la parte inferior */
+.fixed-action-btn.chat-float {
+    bottom: 23px !important;
+    z-index: 1050 !important; /* Mayor z-index para el chat */
+}
+
+/* Botón de carrito */
+.fixed-action-btn.cart-float {
+    bottom: 90px !important; /* Ajustado para estar entre el chat y el admin */
+}
+
+/* Botón de usuario */
+.fixed-action-btn.user-float {
+    bottom: 230px !important;
+}
+
+/* Ajuste para los botones que se despliegan desde el botón flotante principal */
+.fixed-action-btn ul {
+    bottom: 50px !important;
+}
+
+/* Ajuste para evitar que los botones flotantes se superpongan */
+.fixed-action-btn.direction-top {
+    padding-top: 0 !important;
+}
+
+.fixed-action-btn.direction-top ul {
+    bottom: 64px !important;
+    top: auto !important;
+}
+
+/* Asegurarse de que los botones flotantes no se superpongan en móviles */
+@media only screen and (max-width: 600px) {
+    .fixed-action-btn {
+        right: 15px !important;
+    }
+
+    .fixed-action-btn.admin-float {
+        bottom: 160px !important;
+    }
+
+    .fixed-action-btn.cart-float {
+        bottom: 90px !important;
+    }
+
+    .fixed-action-btn.chat-float {
+        bottom: 15px !important;
+    }
+}
+
+/* Ajustes para la página de verificación de usuarios */
+.verificar-usuarios .container {
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+/* Ajustes para la página de catálogo */
+.hero-section {
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+/* Ajustes para el footer */
+.page-footer {
+    margin-top: 40px;
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.16);
+}
+
+.page-footer .footer-copyright {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.page-footer a {
+    color: white !important;
+    transition: opacity 0.3s ease;
+}
+
+.page-footer a:hover {
+    opacity: 0.8;
+}
+
+/* Iconos de usuario en el header sin fondo circular */
+.icon-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 10px !important;
+    height: 64px !important;
+    color: white !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: relative !important;
+    transition: all 0.2s ease !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    line-height: 1.5 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+}
+
+.icon-link i.material-icons {
+    font-size: 28px !important;
+    color: white !important;
+    margin: 0 4px 0 0 !important;
+    vertical-align: middle !important;
+    transition: color 0.2s !important;
+}
+
+.icon-link:hover,
+.icon-link:focus {
+    background: rgba(255,255,255,0.1) !important;
+    color: #ffd600 !important;
+    border-radius: 4px !important;
+}
+
+/* Mostrar texto en pantallas medianas y grandes */
+.icon-link .hide-on-med-and-down {
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+.icon-link .badge {
+    position: absolute;
+    top: 14px;
+    right: 2px;
+    font-size: 0.8rem;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 10px;
+    line-height: 18px;
+    z-index: 2;
+}
+@media (max-width: 992px) {
+    .icon-link {
+        height: 48px;
+        padding: 0 6px;
+    }
+    .icon-link i.material-icons {
+        font-size: 24px;
+    }
+}

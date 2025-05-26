@@ -1,0 +1,550 @@
+/* Estilos para el diseño de bienes raíces */
+:root {
+    --primary-color: #4db6ac;
+    --secondary-color: #37474f;
+    --light-color: #f5f5f5;
+    --dark-color: #263238;
+    --accent-color: #26a69a;
+    --hover-color: #00897b;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos para el encabezado */
+.navbar-fixed {
+    z-index: 999;
+}
+
+nav {
+    background-color: #2c3e50;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+}
+
+nav .brand-logo {
+    font-weight: 500;
+    padding-left: 15px;
+    color: white;
+}
+
+nav ul a {
+    font-weight: 400;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+nav ul a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para botones e iconos */
+.btn {
+    background-color: #2c3e50;
+}
+
+.btn:hover {
+    background-color: #34495e;
+}
+
+.btn.green {
+    background-color: #27ae60;
+}
+
+.btn.green:hover {
+    background-color: #2ecc71;
+}
+
+.btn.red {
+    background-color: #c0392b;
+}
+
+.btn.red:hover {
+    background-color: #e74c3c;
+}
+
+.btn.blue {
+    background-color: #2980b9;
+}
+
+.btn.blue:hover {
+    background-color: #3498db;
+}
+
+/* Estilos para etiquetas y contenedores */
+.card {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.filtros-panel {
+    border: 1px solid #ecf0f1 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Estilos para iconos flotantes */
+.fixed-action-btn {
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+    z-index: 998;
+}
+
+.btn-floating {
+    background-color: #2c3e50;
+}
+
+.btn-floating:hover {
+    background-color: #34495e;
+}
+
+/* Estilos para el chat flotante */
+.chat-icon-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chat-button {
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.chat-button:hover {
+    background-color: #34495e;
+    transform: scale(1.05);
+}
+
+.material-icons {
+    vertical-align: middle;
+}
+
+/* Estilos para el banner principal */
+.hero-section {
+    background-color: var(--primary-color);
+    padding: 80px 0 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../backend/images/a.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la sección de filtros */
+.filters-section {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-top: -30px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    border: 1px solid #ecf0f1;
+}
+
+.filter-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* Estilos para los filtros */
+.filtros-panel {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border: 1px solid #ecf0f1;
+}
+
+.category-title {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los checkboxes y radio buttons */
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #2980b9;
+    background-color: #2980b9;
+}
+
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:after {
+    background-color: #2980b9;
+}
+
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:before,
+[type="radio"].with-gap:checked+span:after {
+    border: 2px solid #2980b9;
+}
+
+/* Estilos para el slider de precio */
+input[type=range]::-webkit-slider-thumb {
+    background-color: #2980b9;
+}
+input[type=range]::-moz-range-thumb {
+    background-color: #2980b9;
+}
+input[type=range]::-ms-thumb {
+    background-color: #2980b9;
+}
+
+input[type=range] + .thumb {
+    background-color: #2980b9;
+}
+
+input[type=range] + .thumb .value {
+    color: white;
+}
+
+.selected-price {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* Estilos para los productos */
+.products-section {
+    padding: 20px 0 60px;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--dark-color);
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Estilos para las tarjetas de productos */
+.card {
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.card .card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card .card-image img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card .card-content {
+    padding: 15px;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #757575;
+    max-height: 60px;
+    overflow: hidden;
+}
+
+.product-description-text {
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.price {
+    font-weight: 500;
+    color: #2980b9;
+    margin-bottom: 5px;
+}
+
+.price-bs {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+.tasa-info {
+    font-size: 0.8rem;
+    color: #95a5a6;
+}
+
+.category-container {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.category-label {
+    font-weight: 500;
+    color: #757575;
+}
+
+.category-value {
+    color: #424242;
+}
+
+.stock-container {
+    margin: 10px 0;
+}
+
+.stock-container .btn {
+    font-size: 0.9rem;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 4px;
+}
+
+/* Estilos para los botones de disponibilidad */
+.stock-container .btn.green {
+    background-color: #27ae60;
+}
+
+.stock-container .btn.red {
+    background-color: #c0392b;
+}
+
+/* Estilos para los botones de agregar al carrito */
+.btn-add-cart,
+.agregar-carrito-form .btn {
+    background-color: #2980b9;
+}
+
+.btn-add-cart:hover,
+.agregar-carrito-form .btn:hover {
+    background-color: #3498db;
+}
+
+/* Estilos para los badges */
+.badge.new {
+    background-color: #2980b9;
+}
+
+.badge.new.amber {
+    background-color: #f39c12;
+}
+
+.badge.new.red {
+    background-color: #c0392b;
+}
+
+/* Estilos para los iconos pulsantes */
+.pulse {
+    background-color: #2980b9 !important;
+}
+
+.card .card-action {
+    padding: 10px 15px;
+}
+
+/* Estilos para los iconos de edición */
+.edit-image-icon,
+.edit-description-icon,
+.edit-price-icon,
+.edit-category-icon,
+.edit-stock-icon,
+.fullscreen-image-icon {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.edit-image-icon:hover,
+.edit-description-icon:hover,
+.edit-price-icon:hover,
+.edit-category-icon:hover,
+.edit-stock-icon:hover,
+.fullscreen-image-icon:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+
+.foto-count-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para la paginación */
+.pagination {
+    margin-top: 30px;
+}
+
+.pagination li.active {
+    background-color: #2980b9;
+}
+
+.pagination li a {
+    color: #2c3e50;
+}
+
+.pagination li.active a {
+    color: white;
+}
+
+/* Estilos para el footer */
+.footer-dark {
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 40px;
+    padding: 0;
+}
+
+.footer-dark .footer-content {
+    padding: 15px 0;
+    background-color: #2c3e50;
+}
+
+.footer-dark .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.footer-dark .footer-links a {
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-dark .footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-dark .footer-copyright {
+    background-color: #243342;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+.footer-dark .footer-copyright a {
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s;
+}
+
+.footer-dark .footer-copyright a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .filters-section {
+        margin-top: 0;
+    }
+
+    .real-estate-footer .col {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
